@@ -198,9 +198,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/etpay-transfers-api/dev/1714803245971-2024-05-04T06:14:05.971Z/etpay-transfers-api.zip"
+                "S3Key": "serverless/etpay-transfers-api/dev/1714817360663-2024-05-04T10:09:20.663Z/etpay-transfers-api.zip"
               },
-              "Handler": "dist/transactions/create/index.handler",
+              "Handler": "dist/transfers/create.handler",
               "Runtime": "nodejs18.x",
               "FunctionName": "etpay-transfers-api-dev-create",
               "MemorySize": 1024,
@@ -223,9 +223,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/etpay-transfers-api/dev/1714803245971-2024-05-04T06:14:05.971Z/etpay-transfers-api.zip"
+                "S3Key": "serverless/etpay-transfers-api/dev/1714817360663-2024-05-04T10:09:20.663Z/etpay-transfers-api.zip"
               },
-              "Handler": "dist/transactions/read-many/index.handler",
+              "Handler": "dist/transfers/list.handler",
               "Runtime": "nodejs18.x",
               "FunctionName": "etpay-transfers-api-dev-list",
               "MemorySize": 1024,
@@ -248,9 +248,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/etpay-transfers-api/dev/1714803245971-2024-05-04T06:14:05.971Z/etpay-transfers-api.zip"
+                "S3Key": "serverless/etpay-transfers-api/dev/1714817360663-2024-05-04T10:09:20.663Z/etpay-transfers-api.zip"
               },
-              "Handler": "dist/transactions/read-one/index.handler",
+              "Handler": "dist/transfers/get.handler",
               "Runtime": "nodejs18.x",
               "FunctionName": "etpay-transfers-api-dev-get",
               "MemorySize": 1024,
@@ -273,9 +273,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/etpay-transfers-api/dev/1714803245971-2024-05-04T06:14:05.971Z/etpay-transfers-api.zip"
+                "S3Key": "serverless/etpay-transfers-api/dev/1714817360663-2024-05-04T10:09:20.663Z/etpay-transfers-api.zip"
               },
-              "Handler": "dist/transactions/update/index.handler",
+              "Handler": "dist/transfers/update.handler",
               "Runtime": "nodejs18.x",
               "FunctionName": "etpay-transfers-api-dev-update",
               "MemorySize": 1024,
@@ -298,9 +298,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/etpay-transfers-api/dev/1714803245971-2024-05-04T06:14:05.971Z/etpay-transfers-api.zip"
+                "S3Key": "serverless/etpay-transfers-api/dev/1714817360663-2024-05-04T10:09:20.663Z/etpay-transfers-api.zip"
               },
-              "Handler": "dist/transactions/delete/index.handler",
+              "Handler": "dist/transfers/delete.handler",
               "Runtime": "nodejs18.x",
               "FunctionName": "etpay-transfers-api-dev-delete",
               "MemorySize": 1024,
@@ -316,434 +316,77 @@
               "DeleteLogGroup"
             ]
           },
-          "CreateLambdaVersionqhBIIuw1ZK1xnoUfVPOKvlVZu0VuSQCmNg7ZWzM2whw": {
+          "CreateLambdaVersionu7mGODW2NmcE0u8BbMqVivAxL33mxXwM5v3IzDyCGc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "CreateLambdaFunction"
               },
-              "CodeSha256": "O2pOUvACS0GmGxFnN9+AFrUSZ/gQ6cGLGQwGxjUuNSk="
+              "CodeSha256": "9mFCo7BCLzzhsXUUJIeQFRjrAX6HDolhapslfXC4tow="
             }
           },
-          "ListLambdaVersionPcRkaGYdRjug4iACbjLktFtUgk1UGGY1XreevJI": {
+          "ListLambdaVersionNyVap2H9JGrdkLvk4sqZFFu0ua9YgRHqhpSDz9shQ": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ListLambdaFunction"
               },
-              "CodeSha256": "O2pOUvACS0GmGxFnN9+AFrUSZ/gQ6cGLGQwGxjUuNSk="
+              "CodeSha256": "9mFCo7BCLzzhsXUUJIeQFRjrAX6HDolhapslfXC4tow="
             }
           },
-          "GetLambdaVersiontlMckXd2yvHTmbmK5dijQGktxf5iIeOnl59IwkekVw": {
+          "GetLambdaVersiondPufYf0PwJFBOJ9oKm5GqVhvjvXUQUfNke1RRsf8SQ": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetLambdaFunction"
               },
-              "CodeSha256": "O2pOUvACS0GmGxFnN9+AFrUSZ/gQ6cGLGQwGxjUuNSk="
+              "CodeSha256": "9mFCo7BCLzzhsXUUJIeQFRjrAX6HDolhapslfXC4tow="
             }
           },
-          "UpdateLambdaVersionC5Tjs1Gwk9rOJWZb3LuOBPnlSvhsWUQ7ziw894mylcY": {
+          "UpdateLambdaVersion9UUJylI7YnHoKSQHJ9fRNrRi1ONNiCgvjoJkFqhshi8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "UpdateLambdaFunction"
               },
-              "CodeSha256": "O2pOUvACS0GmGxFnN9+AFrUSZ/gQ6cGLGQwGxjUuNSk="
+              "CodeSha256": "9mFCo7BCLzzhsXUUJIeQFRjrAX6HDolhapslfXC4tow="
             }
           },
-          "DeleteLambdaVersion5BxMdtMqW8O6f75EmYOAMh58cSKs2n4gzUJ1xlVoKxQ": {
+          "DeleteLambdaVersionhku6Qp4fwc4ijwbI4scs1qPUa6YWvItcKj0ud6LI4": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "DeleteLambdaFunction"
               },
-              "CodeSha256": "O2pOUvACS0GmGxFnN9+AFrUSZ/gQ6cGLGQwGxjUuNSk="
+              "CodeSha256": "9mFCo7BCLzzhsXUUJIeQFRjrAX6HDolhapslfXC4tow="
             }
           },
-          "ApiGatewayRestApi": {
-            "Type": "AWS::ApiGateway::RestApi",
+          "HttpApi": {
+            "Type": "AWS::ApiGatewayV2::Api",
             "Properties": {
               "Name": "dev-etpay-transfers-api",
-              "EndpointConfiguration": {
-                "Types": [
-                  "EDGE"
-                ]
-              },
-              "Policy": ""
+              "ProtocolType": "HTTP"
             }
           },
-          "ApiGatewayResourceTransfers": {
-            "Type": "AWS::ApiGateway::Resource",
+          "HttpApiStage": {
+            "Type": "AWS::ApiGatewayV2::Stage",
             "Properties": {
-              "ParentId": {
-                "Fn::GetAtt": [
-                  "ApiGatewayRestApi",
-                  "RootResourceId"
-                ]
+              "ApiId": {
+                "Ref": "HttpApi"
               },
-              "PathPart": "transfers",
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
+              "StageName": "$default",
+              "AutoDeploy": true,
+              "DefaultRouteSettings": {
+                "DetailedMetricsEnabled": false
               }
             }
           },
-          "ApiGatewayResourceTransfersIdVar": {
-            "Type": "AWS::ApiGateway::Resource",
-            "Properties": {
-              "ParentId": {
-                "Ref": "ApiGatewayResourceTransfers"
-              },
-              "PathPart": "{id}",
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              }
-            }
-          },
-          "ApiGatewayMethodTransfersOptions": {
-            "Type": "AWS::ApiGateway::Method",
-            "Properties": {
-              "AuthorizationType": "NONE",
-              "HttpMethod": "OPTIONS",
-              "MethodResponses": [
-                {
-                  "StatusCode": "200",
-                  "ResponseParameters": {
-                    "method.response.header.Access-Control-Allow-Origin": true,
-                    "method.response.header.Access-Control-Allow-Headers": true,
-                    "method.response.header.Access-Control-Allow-Methods": true
-                  },
-                  "ResponseModels": {}
-                }
-              ],
-              "RequestParameters": {},
-              "Integration": {
-                "Type": "MOCK",
-                "RequestTemplates": {
-                  "application/json": "{statusCode:200}"
-                },
-                "ContentHandling": "CONVERT_TO_TEXT",
-                "IntegrationResponses": [
-                  {
-                    "StatusCode": "200",
-                    "ResponseParameters": {
-                      "method.response.header.Access-Control-Allow-Origin": "'*'",
-                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
-                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,POST'"
-                    },
-                    "ResponseTemplates": {
-                      "application/json": ""
-                    }
-                  }
-                ]
-              },
-              "ResourceId": {
-                "Ref": "ApiGatewayResourceTransfers"
-              },
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              }
-            }
-          },
-          "ApiGatewayMethodTransfersIdVarOptions": {
-            "Type": "AWS::ApiGateway::Method",
-            "Properties": {
-              "AuthorizationType": "NONE",
-              "HttpMethod": "OPTIONS",
-              "MethodResponses": [
-                {
-                  "StatusCode": "200",
-                  "ResponseParameters": {
-                    "method.response.header.Access-Control-Allow-Origin": true,
-                    "method.response.header.Access-Control-Allow-Headers": true,
-                    "method.response.header.Access-Control-Allow-Methods": true
-                  },
-                  "ResponseModels": {}
-                }
-              ],
-              "RequestParameters": {},
-              "Integration": {
-                "Type": "MOCK",
-                "RequestTemplates": {
-                  "application/json": "{statusCode:200}"
-                },
-                "ContentHandling": "CONVERT_TO_TEXT",
-                "IntegrationResponses": [
-                  {
-                    "StatusCode": "200",
-                    "ResponseParameters": {
-                      "method.response.header.Access-Control-Allow-Origin": "'*'",
-                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
-                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,DELETE,PUT,GET'"
-                    },
-                    "ResponseTemplates": {
-                      "application/json": ""
-                    }
-                  }
-                ]
-              },
-              "ResourceId": {
-                "Ref": "ApiGatewayResourceTransfersIdVar"
-              },
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              }
-            }
-          },
-          "ApiGatewayMethodTransfersPost": {
-            "Type": "AWS::ApiGateway::Method",
-            "Properties": {
-              "HttpMethod": "POST",
-              "RequestParameters": {},
-              "ResourceId": {
-                "Ref": "ApiGatewayResourceTransfers"
-              },
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              },
-              "ApiKeyRequired": false,
-              "AuthorizationType": "NONE",
-              "Integration": {
-                "IntegrationHttpMethod": "POST",
-                "Type": "AWS_PROXY",
-                "Uri": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":apigateway:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":lambda:path/2015-03-31/functions/",
-                      {
-                        "Fn::GetAtt": [
-                          "CreateLambdaFunction",
-                          "Arn"
-                        ]
-                      },
-                      "/invocations"
-                    ]
-                  ]
-                }
-              },
-              "MethodResponses": []
-            },
-            "DependsOn": [
-              "CreateLambdaPermissionApiGateway"
-            ]
-          },
-          "ApiGatewayMethodTransfersGet": {
-            "Type": "AWS::ApiGateway::Method",
-            "Properties": {
-              "HttpMethod": "GET",
-              "RequestParameters": {},
-              "ResourceId": {
-                "Ref": "ApiGatewayResourceTransfers"
-              },
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              },
-              "ApiKeyRequired": false,
-              "AuthorizationType": "NONE",
-              "Integration": {
-                "IntegrationHttpMethod": "POST",
-                "Type": "AWS_PROXY",
-                "Uri": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":apigateway:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":lambda:path/2015-03-31/functions/",
-                      {
-                        "Fn::GetAtt": [
-                          "ListLambdaFunction",
-                          "Arn"
-                        ]
-                      },
-                      "/invocations"
-                    ]
-                  ]
-                }
-              },
-              "MethodResponses": []
-            },
-            "DependsOn": [
-              "ListLambdaPermissionApiGateway"
-            ]
-          },
-          "ApiGatewayMethodTransfersIdVarGet": {
-            "Type": "AWS::ApiGateway::Method",
-            "Properties": {
-              "HttpMethod": "GET",
-              "RequestParameters": {},
-              "ResourceId": {
-                "Ref": "ApiGatewayResourceTransfersIdVar"
-              },
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              },
-              "ApiKeyRequired": false,
-              "AuthorizationType": "NONE",
-              "Integration": {
-                "IntegrationHttpMethod": "POST",
-                "Type": "AWS_PROXY",
-                "Uri": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":apigateway:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":lambda:path/2015-03-31/functions/",
-                      {
-                        "Fn::GetAtt": [
-                          "GetLambdaFunction",
-                          "Arn"
-                        ]
-                      },
-                      "/invocations"
-                    ]
-                  ]
-                }
-              },
-              "MethodResponses": []
-            },
-            "DependsOn": [
-              "GetLambdaPermissionApiGateway"
-            ]
-          },
-          "ApiGatewayMethodTransfersIdVarPut": {
-            "Type": "AWS::ApiGateway::Method",
-            "Properties": {
-              "HttpMethod": "PUT",
-              "RequestParameters": {},
-              "ResourceId": {
-                "Ref": "ApiGatewayResourceTransfersIdVar"
-              },
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              },
-              "ApiKeyRequired": false,
-              "AuthorizationType": "NONE",
-              "Integration": {
-                "IntegrationHttpMethod": "POST",
-                "Type": "AWS_PROXY",
-                "Uri": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":apigateway:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":lambda:path/2015-03-31/functions/",
-                      {
-                        "Fn::GetAtt": [
-                          "UpdateLambdaFunction",
-                          "Arn"
-                        ]
-                      },
-                      "/invocations"
-                    ]
-                  ]
-                }
-              },
-              "MethodResponses": []
-            },
-            "DependsOn": [
-              "UpdateLambdaPermissionApiGateway"
-            ]
-          },
-          "ApiGatewayMethodTransfersIdVarDelete": {
-            "Type": "AWS::ApiGateway::Method",
-            "Properties": {
-              "HttpMethod": "DELETE",
-              "RequestParameters": {},
-              "ResourceId": {
-                "Ref": "ApiGatewayResourceTransfersIdVar"
-              },
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              },
-              "ApiKeyRequired": false,
-              "AuthorizationType": "NONE",
-              "Integration": {
-                "IntegrationHttpMethod": "POST",
-                "Type": "AWS_PROXY",
-                "Uri": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":apigateway:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":lambda:path/2015-03-31/functions/",
-                      {
-                        "Fn::GetAtt": [
-                          "DeleteLambdaFunction",
-                          "Arn"
-                        ]
-                      },
-                      "/invocations"
-                    ]
-                  ]
-                }
-              },
-              "MethodResponses": []
-            },
-            "DependsOn": [
-              "DeleteLambdaPermissionApiGateway"
-            ]
-          },
-          "ApiGatewayDeployment1714803242176": {
-            "Type": "AWS::ApiGateway::Deployment",
-            "Properties": {
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              },
-              "StageName": "dev"
-            },
-            "DependsOn": [
-              "ApiGatewayMethodTransfersOptions",
-              "ApiGatewayMethodTransfersIdVarOptions",
-              "ApiGatewayMethodTransfersPost",
-              "ApiGatewayMethodTransfersGet",
-              "ApiGatewayMethodTransfersIdVarGet",
-              "ApiGatewayMethodTransfersIdVarPut",
-              "ApiGatewayMethodTransfersIdVarDelete"
-            ]
-          },
-          "CreateLambdaPermissionApiGateway": {
+          "CreateLambdaPermissionHttpApi": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
               "FunctionName": {
@@ -772,15 +415,50 @@
                     },
                     ":",
                     {
-                      "Ref": "ApiGatewayRestApi"
+                      "Ref": "HttpApi"
                     },
-                    "/*/*"
+                    "/*"
                   ]
                 ]
               }
             }
           },
-          "ListLambdaPermissionApiGateway": {
+          "HttpApiIntegrationCreate": {
+            "Type": "AWS::ApiGatewayV2::Integration",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "IntegrationType": "AWS_PROXY",
+              "IntegrationUri": {
+                "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"CreateLambdaPermissionHttpApi\"][\"Properties\"][\"FunctionName\"]"
+              },
+              "PayloadFormatVersion": "2.0",
+              "TimeoutInMillis": 30000
+            }
+          },
+          "HttpApiRoutePostTransfers": {
+            "Type": "AWS::ApiGatewayV2::Route",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "RouteKey": "POST /transfers",
+              "Target": {
+                "Fn::Join": [
+                  "/",
+                  [
+                    "integrations",
+                    {
+                      "Ref": "HttpApiIntegrationCreate"
+                    }
+                  ]
+                ]
+              }
+            },
+            "DependsOn": "HttpApiIntegrationCreate"
+          },
+          "ListLambdaPermissionHttpApi": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
               "FunctionName": {
@@ -809,15 +487,50 @@
                     },
                     ":",
                     {
-                      "Ref": "ApiGatewayRestApi"
+                      "Ref": "HttpApi"
                     },
-                    "/*/*"
+                    "/*"
                   ]
                 ]
               }
             }
           },
-          "GetLambdaPermissionApiGateway": {
+          "HttpApiIntegrationList": {
+            "Type": "AWS::ApiGatewayV2::Integration",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "IntegrationType": "AWS_PROXY",
+              "IntegrationUri": {
+                "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"ListLambdaPermissionHttpApi\"][\"Properties\"][\"FunctionName\"]"
+              },
+              "PayloadFormatVersion": "2.0",
+              "TimeoutInMillis": 30000
+            }
+          },
+          "HttpApiRouteGetTransfers": {
+            "Type": "AWS::ApiGatewayV2::Route",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "RouteKey": "GET /transfers",
+              "Target": {
+                "Fn::Join": [
+                  "/",
+                  [
+                    "integrations",
+                    {
+                      "Ref": "HttpApiIntegrationList"
+                    }
+                  ]
+                ]
+              }
+            },
+            "DependsOn": "HttpApiIntegrationList"
+          },
+          "GetLambdaPermissionHttpApi": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
               "FunctionName": {
@@ -846,15 +559,50 @@
                     },
                     ":",
                     {
-                      "Ref": "ApiGatewayRestApi"
+                      "Ref": "HttpApi"
                     },
-                    "/*/*"
+                    "/*"
                   ]
                 ]
               }
             }
           },
-          "UpdateLambdaPermissionApiGateway": {
+          "HttpApiIntegrationGet": {
+            "Type": "AWS::ApiGatewayV2::Integration",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "IntegrationType": "AWS_PROXY",
+              "IntegrationUri": {
+                "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"GetLambdaPermissionHttpApi\"][\"Properties\"][\"FunctionName\"]"
+              },
+              "PayloadFormatVersion": "2.0",
+              "TimeoutInMillis": 30000
+            }
+          },
+          "HttpApiRouteGetTransfersIdVar": {
+            "Type": "AWS::ApiGatewayV2::Route",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "RouteKey": "GET /transfers/{id}",
+              "Target": {
+                "Fn::Join": [
+                  "/",
+                  [
+                    "integrations",
+                    {
+                      "Ref": "HttpApiIntegrationGet"
+                    }
+                  ]
+                ]
+              }
+            },
+            "DependsOn": "HttpApiIntegrationGet"
+          },
+          "UpdateLambdaPermissionHttpApi": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
               "FunctionName": {
@@ -883,15 +631,50 @@
                     },
                     ":",
                     {
-                      "Ref": "ApiGatewayRestApi"
+                      "Ref": "HttpApi"
                     },
-                    "/*/*"
+                    "/*"
                   ]
                 ]
               }
             }
           },
-          "DeleteLambdaPermissionApiGateway": {
+          "HttpApiIntegrationUpdate": {
+            "Type": "AWS::ApiGatewayV2::Integration",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "IntegrationType": "AWS_PROXY",
+              "IntegrationUri": {
+                "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"UpdateLambdaPermissionHttpApi\"][\"Properties\"][\"FunctionName\"]"
+              },
+              "PayloadFormatVersion": "2.0",
+              "TimeoutInMillis": 30000
+            }
+          },
+          "HttpApiRoutePutTransfersIdVar": {
+            "Type": "AWS::ApiGatewayV2::Route",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "RouteKey": "PUT /transfers/{id}",
+              "Target": {
+                "Fn::Join": [
+                  "/",
+                  [
+                    "integrations",
+                    {
+                      "Ref": "HttpApiIntegrationUpdate"
+                    }
+                  ]
+                ]
+              }
+            },
+            "DependsOn": "HttpApiIntegrationUpdate"
+          },
+          "DeleteLambdaPermissionHttpApi": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
               "FunctionName": {
@@ -920,13 +703,48 @@
                     },
                     ":",
                     {
-                      "Ref": "ApiGatewayRestApi"
+                      "Ref": "HttpApi"
                     },
-                    "/*/*"
+                    "/*"
                   ]
                 ]
               }
             }
+          },
+          "HttpApiIntegrationDelete": {
+            "Type": "AWS::ApiGatewayV2::Integration",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "IntegrationType": "AWS_PROXY",
+              "IntegrationUri": {
+                "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"DeleteLambdaPermissionHttpApi\"][\"Properties\"][\"FunctionName\"]"
+              },
+              "PayloadFormatVersion": "2.0",
+              "TimeoutInMillis": 30000
+            }
+          },
+          "HttpApiRouteDeleteTransfersIdVar": {
+            "Type": "AWS::ApiGatewayV2::Route",
+            "Properties": {
+              "ApiId": {
+                "Ref": "HttpApi"
+              },
+              "RouteKey": "DELETE /transfers/{id}",
+              "Target": {
+                "Fn::Join": [
+                  "/",
+                  [
+                    "integrations",
+                    {
+                      "Ref": "HttpApiIntegrationDelete"
+                    }
+                  ]
+                ]
+              }
+            },
+            "DependsOn": "HttpApiIntegrationDelete"
           }
         },
         "Outputs": {
@@ -941,7 +759,7 @@
           "CreateLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "CreateLambdaVersionqhBIIuw1ZK1xnoUfVPOKvlVZu0VuSQCmNg7ZWzM2whw"
+              "Ref": "CreateLambdaVersionu7mGODW2NmcE0u8BbMqVivAxL33mxXwM5v3IzDyCGc"
             },
             "Export": {
               "Name": "sls-etpay-transfers-api-dev-CreateLambdaFunctionQualifiedArn"
@@ -950,7 +768,7 @@
           "ListLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ListLambdaVersionPcRkaGYdRjug4iACbjLktFtUgk1UGGY1XreevJI"
+              "Ref": "ListLambdaVersionNyVap2H9JGrdkLvk4sqZFFu0ua9YgRHqhpSDz9shQ"
             },
             "Export": {
               "Name": "sls-etpay-transfers-api-dev-ListLambdaFunctionQualifiedArn"
@@ -959,7 +777,7 @@
           "GetLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetLambdaVersiontlMckXd2yvHTmbmK5dijQGktxf5iIeOnl59IwkekVw"
+              "Ref": "GetLambdaVersiondPufYf0PwJFBOJ9oKm5GqVhvjvXUQUfNke1RRsf8SQ"
             },
             "Export": {
               "Name": "sls-etpay-transfers-api-dev-GetLambdaFunctionQualifiedArn"
@@ -968,7 +786,7 @@
           "UpdateLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "UpdateLambdaVersionC5Tjs1Gwk9rOJWZb3LuOBPnlSvhsWUQ7ziw894mylcY"
+              "Ref": "UpdateLambdaVersion9UUJylI7YnHoKSQHJ9fRNrRi1ONNiCgvjoJkFqhshi8"
             },
             "Export": {
               "Name": "sls-etpay-transfers-api-dev-UpdateLambdaFunctionQualifiedArn"
@@ -977,21 +795,30 @@
           "DeleteLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "DeleteLambdaVersion5BxMdtMqW8O6f75EmYOAMh58cSKs2n4gzUJ1xlVoKxQ"
+              "Ref": "DeleteLambdaVersionhku6Qp4fwc4ijwbI4scs1qPUa6YWvItcKj0ud6LI4"
             },
             "Export": {
               "Name": "sls-etpay-transfers-api-dev-DeleteLambdaFunctionQualifiedArn"
             }
           },
-          "ServiceEndpoint": {
-            "Description": "URL of the service endpoint",
+          "HttpApiId": {
+            "Description": "Id of the HTTP API",
+            "Value": {
+              "Ref": "HttpApi"
+            },
+            "Export": {
+              "Name": "sls-etpay-transfers-api-dev-HttpApiId"
+            }
+          },
+          "HttpApiUrl": {
+            "Description": "URL of the HTTP API",
             "Value": {
               "Fn::Join": [
                 "",
                 [
                   "https://",
                   {
-                    "Ref": "ApiGatewayRestApi"
+                    "Ref": "HttpApi"
                   },
                   ".execute-api.",
                   {
@@ -1000,13 +827,12 @@
                   ".",
                   {
                     "Ref": "AWS::URLSuffix"
-                  },
-                  "/dev"
+                  }
                 ]
               ]
             },
             "Export": {
-              "Name": "sls-etpay-transfers-api-dev-ServiceEndpoint"
+              "Name": "sls-etpay-transfers-api-dev-HttpApiUrl"
             }
           }
         }
@@ -1098,31 +924,15 @@
     "pluginsData": {},
     "functions": {
       "create": {
-        "handler": "dist/transactions/create/index.handler",
+        "handler": "dist/transfers/create.handler",
         "events": [
           {
-            "http": {
-              "path": "transfers",
-              "method": "post",
-              "cors": {
-                "origin": "*",
-                "methods": [
-                  "OPTIONS",
-                  "POST"
-                ],
-                "headers": [
-                  "Content-Type",
-                  "X-Amz-Date",
-                  "Authorization",
-                  "X-Api-Key",
-                  "X-Amz-Security-Token",
-                  "X-Amz-User-Agent",
-                  "X-Amzn-Trace-Id"
-                ],
-                "allowCredentials": false
-              },
-              "integration": "AWS_PROXY"
-            }
+            "httpApi": {
+              "path": "/transfers",
+              "method": "post"
+            },
+            "resolvedMethod": "POST",
+            "resolvedPath": "/transfers"
           }
         ],
         "name": "etpay-transfers-api-dev-create",
@@ -1131,34 +941,18 @@
         "timeout": 6,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "CreateLambdaVersionqhBIIuw1ZK1xnoUfVPOKvlVZu0VuSQCmNg7ZWzM2whw"
+        "versionLogicalId": "CreateLambdaVersionu7mGODW2NmcE0u8BbMqVivAxL33mxXwM5v3IzDyCGc"
       },
       "list": {
-        "handler": "dist/transactions/read-many/index.handler",
+        "handler": "dist/transfers/list.handler",
         "events": [
           {
-            "http": {
-              "path": "transfers",
-              "method": "get",
-              "cors": {
-                "origin": "*",
-                "methods": [
-                  "OPTIONS",
-                  "GET"
-                ],
-                "headers": [
-                  "Content-Type",
-                  "X-Amz-Date",
-                  "Authorization",
-                  "X-Api-Key",
-                  "X-Amz-Security-Token",
-                  "X-Amz-User-Agent",
-                  "X-Amzn-Trace-Id"
-                ],
-                "allowCredentials": false
-              },
-              "integration": "AWS_PROXY"
-            }
+            "httpApi": {
+              "path": "/transfers",
+              "method": "get"
+            },
+            "resolvedMethod": "GET",
+            "resolvedPath": "/transfers"
           }
         ],
         "name": "etpay-transfers-api-dev-list",
@@ -1167,34 +961,18 @@
         "timeout": 6,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "ListLambdaVersionPcRkaGYdRjug4iACbjLktFtUgk1UGGY1XreevJI"
+        "versionLogicalId": "ListLambdaVersionNyVap2H9JGrdkLvk4sqZFFu0ua9YgRHqhpSDz9shQ"
       },
       "get": {
-        "handler": "dist/transactions/read-one/index.handler",
+        "handler": "dist/transfers/get.handler",
         "events": [
           {
-            "http": {
-              "path": "transfers/{id}",
-              "method": "get",
-              "cors": {
-                "origin": "*",
-                "methods": [
-                  "OPTIONS",
-                  "GET"
-                ],
-                "headers": [
-                  "Content-Type",
-                  "X-Amz-Date",
-                  "Authorization",
-                  "X-Api-Key",
-                  "X-Amz-Security-Token",
-                  "X-Amz-User-Agent",
-                  "X-Amzn-Trace-Id"
-                ],
-                "allowCredentials": false
-              },
-              "integration": "AWS_PROXY"
-            }
+            "httpApi": {
+              "path": "/transfers/{id}",
+              "method": "get"
+            },
+            "resolvedMethod": "GET",
+            "resolvedPath": "/transfers/{id}"
           }
         ],
         "name": "etpay-transfers-api-dev-get",
@@ -1203,34 +981,18 @@
         "timeout": 6,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "GetLambdaVersiontlMckXd2yvHTmbmK5dijQGktxf5iIeOnl59IwkekVw"
+        "versionLogicalId": "GetLambdaVersiondPufYf0PwJFBOJ9oKm5GqVhvjvXUQUfNke1RRsf8SQ"
       },
       "update": {
-        "handler": "dist/transactions/update/index.handler",
+        "handler": "dist/transfers/update.handler",
         "events": [
           {
-            "http": {
-              "path": "transfers/{id}",
-              "method": "put",
-              "cors": {
-                "origin": "*",
-                "methods": [
-                  "OPTIONS",
-                  "PUT"
-                ],
-                "headers": [
-                  "Content-Type",
-                  "X-Amz-Date",
-                  "Authorization",
-                  "X-Api-Key",
-                  "X-Amz-Security-Token",
-                  "X-Amz-User-Agent",
-                  "X-Amzn-Trace-Id"
-                ],
-                "allowCredentials": false
-              },
-              "integration": "AWS_PROXY"
-            }
+            "httpApi": {
+              "path": "/transfers/{id}",
+              "method": "put"
+            },
+            "resolvedMethod": "PUT",
+            "resolvedPath": "/transfers/{id}"
           }
         ],
         "name": "etpay-transfers-api-dev-update",
@@ -1239,34 +1001,18 @@
         "timeout": 6,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "UpdateLambdaVersionC5Tjs1Gwk9rOJWZb3LuOBPnlSvhsWUQ7ziw894mylcY"
+        "versionLogicalId": "UpdateLambdaVersion9UUJylI7YnHoKSQHJ9fRNrRi1ONNiCgvjoJkFqhshi8"
       },
       "delete": {
-        "handler": "dist/transactions/delete/index.handler",
+        "handler": "dist/transfers/delete.handler",
         "events": [
           {
-            "http": {
-              "path": "transfers/{id}",
-              "method": "delete",
-              "cors": {
-                "origin": "*",
-                "methods": [
-                  "OPTIONS",
-                  "DELETE"
-                ],
-                "headers": [
-                  "Content-Type",
-                  "X-Amz-Date",
-                  "Authorization",
-                  "X-Api-Key",
-                  "X-Amz-Security-Token",
-                  "X-Amz-User-Agent",
-                  "X-Amzn-Trace-Id"
-                ],
-                "allowCredentials": false
-              },
-              "integration": "AWS_PROXY"
-            }
+            "httpApi": {
+              "path": "/transfers/{id}",
+              "method": "delete"
+            },
+            "resolvedMethod": "DELETE",
+            "resolvedPath": "/transfers/{id}"
           }
         ],
         "name": "etpay-transfers-api-dev-delete",
@@ -1275,7 +1021,7 @@
         "timeout": 6,
         "runtime": "nodejs18.x",
         "vpc": {},
-        "versionLogicalId": "DeleteLambdaVersion5BxMdtMqW8O6f75EmYOAMh58cSKs2n4gzUJ1xlVoKxQ"
+        "versionLogicalId": "DeleteLambdaVersionhku6Qp4fwc4ijwbI4scs1qPUa6YWvItcKj0ud6LI4"
       }
     },
     "configValidationMode": "warn",
@@ -1295,7 +1041,7 @@
     "artifact": "/Users/nano/workspace/lab/etpay/.serverless/etpay-transfers-api.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/etpay-transfers-api/dev/1714803245971-2024-05-04T06:14:05.971Z",
+    "artifactDirectoryName": "serverless/etpay-transfers-api/dev/1714817360663-2024-05-04T10:09:20.663Z",
     "artifact": "etpay-transfers-api.zip"
   }
 }

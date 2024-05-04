@@ -7,37 +7,32 @@ provider:
 
 functions:
   create:
-    handler: dist/transactions/create/index.handler
+    handler: dist/transfers/create.handler
     events:
-      - http:
+      - httpApi:
           path: /transfers
           method: post
-          cors: true
   list:
-    handler: dist/transactions/read-many/index.handler
+    handler: dist/transfers/list.handler
     events:
-      - http:
+      - httpApi:
           path: /transfers
           method: get
-          cors: true
   get:
-    handler: dist/transactions/read-one/index.handler
+    handler: dist/transfers/get.handler
     events:
-      - http:
+      - httpApi:
           path: /transfers/{id}
           method: get
-          cors: true
   update:
-    handler: dist/transactions/update/index.handler
+    handler: dist/transfers/update.handler
     events:
-      - http:
+      - httpApi:
           path: /transfers/{id}
           method: put
-          cors: true
   delete:
-    handler: dist/transactions/delete/index.handler
+    handler: dist/transfers/delete.handler
     events:
-      - http:
+      - httpApi:
           path: /transfers/{id}
           method: delete
-          cors: true
