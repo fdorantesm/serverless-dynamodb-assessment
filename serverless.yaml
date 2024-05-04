@@ -1,0 +1,43 @@
+service: etpay-transfers-api
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  create:
+    handler: dist/transactions/create/index.handler
+    events:
+      - http:
+          path: /transfers
+          method: post
+          cors: true
+  list:
+    handler: dist/transactions/read-many/index.handler
+    events:
+      - http:
+          path: /transfers
+          method: get
+          cors: true
+  get:
+    handler: dist/transactions/read-one/index.handler
+    events:
+      - http:
+          path: /transfers/{id}
+          method: get
+          cors: true
+  update:
+    handler: dist/transactions/update/index.handler
+    events:
+      - http:
+          path: /transfers/{id}
+          method: put
+          cors: true
+  delete:
+    handler: dist/transactions/delete/index.handler
+    events:
+      - http:
+          path: /transfers/{id}
+          method: delete
+          cors: true
