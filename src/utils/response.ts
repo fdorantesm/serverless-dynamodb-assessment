@@ -1,4 +1,5 @@
 export class Response {
+  private message = 'Ok';
   private statusCode = 200;
   private body: any;
   private headers: Record<string, string> = {
@@ -15,6 +16,11 @@ export class Response {
     return this;
   }
 
+  public setMessage(message: string): Response {
+    this.message = message;
+    return this;
+  }
+
   public build(): {
     statusCode: number;
     headers: Record<string, string>;
@@ -25,6 +31,7 @@ export class Response {
       headers: this.headers,
       body: this.body
         ? JSON.stringify({
+            message: this.message,
             data: this.body,
           })
         : undefined,

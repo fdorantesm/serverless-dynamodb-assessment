@@ -5,10 +5,14 @@ const middy = require('middy');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { httpErrorHandler, httpHeaderNormalizer } = require('middy/middlewares');
 
-async function createTransfer(_event: any) {
+export async function createTransfer(_event: any) {
   console.log('Create one transfer...');
 
-  return new Response().setBody({}).setStatus(201).build();
+  return new Response()
+    .setBody({})
+    .setStatus(201)
+    .setMessage('Transfer created')
+    .build();
 }
 
 export const handler = middy(createTransfer)

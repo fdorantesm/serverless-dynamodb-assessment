@@ -1,3 +1,4 @@
+import type { APIGatewayProxyEvent } from 'aws-lambda';
 import { Response } from '../utils/response';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -5,8 +6,10 @@ const middy = require('middy');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { httpErrorHandler, httpHeaderNormalizer } = require('middy/middlewares');
 
-async function deleteTransfer(_event: any) {
-  console.log('Deleting a transaction...');
+export async function deleteTransfer(event: APIGatewayProxyEvent) {
+  const id = event.pathParameters!.id;
+
+  console.log(`Deleting transfer with id ${id}`);
 
   return new Response().setStatus(200).build();
 }

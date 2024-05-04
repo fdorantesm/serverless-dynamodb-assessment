@@ -1,3 +1,4 @@
+import type { APIGatewayProxyEvent } from 'aws-lambda';
 import { Response } from '../utils/response';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -5,10 +6,18 @@ const middy = require('middy');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { httpErrorHandler, httpHeaderNormalizer } = require('middy/middlewares');
 
-async function updateTransfer(_event: any) {
-  console.log('Updating a transaction...');
+export async function updateTransfer(event: APIGatewayProxyEvent) {
+  const id = event.pathParameters!.id;
 
-  return new Response().setStatus(200).build();
+  console.log(`Updating transfer with id ${id}`);
+
+  return new Response()
+    .setStatus(200)
+    .setMessage('Transfer updated')
+    .setBody({
+      id,
+    })
+    .build();
 }
 
 export const handler = middy(updateTransfer)
