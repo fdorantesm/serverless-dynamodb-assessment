@@ -1,0 +1,29 @@
+{
+  "name": "etpay",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "rimraf dist && tsc",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
+    "lint:fix": "eslint --fix \"{src,apps,libs,test}/**/*.ts\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.3.2",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1613.0"
+  }
+}
