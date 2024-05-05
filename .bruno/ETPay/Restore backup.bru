@@ -1,0 +1,17 @@
+meta {
+  name: Restore backup
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{HOST}}/transfers/restore-backup
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "backup": "transfers_back_test.json"
+  }
+}

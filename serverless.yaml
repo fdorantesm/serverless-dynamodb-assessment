@@ -3,36 +3,50 @@ frameworkVersion: '3'
 
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: nodejs20.x
 
 functions:
   create:
-    handler: dist/transfers/create.handler
+    handler: dist/transfers/infrastructure/http/handlers/create-transfer.handler
     events:
       - httpApi:
           path: /transfers
           method: post
   list:
-    handler: dist/transfers/list.handler
+    handler: dist/transfers/infrastructure/http/handlers/list-transfers.handler
     events:
       - httpApi:
           path: /transfers
           method: get
   get:
-    handler: dist/transfers/get.handler
+    handler: dist/transfers/infrastructure/http/handlers/get-transfer.handler
     events:
       - httpApi:
           path: /transfers/{id}
           method: get
   update:
-    handler: dist/transfers/update.handler
+    handler: dist/transfers/infrastructure/http/handlers/update-transfer.handler
     events:
       - httpApi:
           path: /transfers/{id}
           method: put
   delete:
-    handler: dist/transfers/delete.handler
+    handler: dist/transfers/infrastructure/http/handlers/delete-transfer.handler
     events:
       - httpApi:
           path: /transfers/{id}
           method: delete
+  restoreBackup:
+    handler: dist/transfers/infrastructure/http/handlers/restore-backup.handler
+    events:
+      - httpApi:
+          path: /transfers/restore-backup
+          method: post
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-offline
+
+custom:
+  dotenv:
+    path: .env.${opt:stage, 'local'}

@@ -6,6 +6,26 @@ meta {
 
 post {
   url: {{HOST}}/transfers
-  body: none
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "validated": true,
+    "inUse": false,
+    "monto": "100",
+    "tipo": "abono",
+    "fechaMovimiento": 1649909719000,
+    "fecha": "14-04-2022 00:15",
+    "originName": "NOMBRE EMPRESA",
+    "originRut": "0223335554",
+    "originAccount": "00000000000087654321",
+    "receiverRut": "0112223334",
+    "receiverAccount": "00000012345678",
+    "originBankCode": "cl_bci",
+    "originBankName": "Banco BCI",
+    "comment": "",
+    "originAccountType": "cuenta_corriente"
+  }
 }

@@ -5,7 +5,27 @@ meta {
 }
 
 put {
-  url: {{HOST}}/transfers/1
-  body: none
+  url: {{HOST}}/transfers/daf37a56-ed6b-417c-b1ac-3b4eb03c9270
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "validated": true,
+    "inUse": true,
+    "monto": "105.00",
+    "tipo": "abono",
+    "fechaMovimiento": 1649909719000,
+    "fecha": "14-04-2022 00:15",
+    "originName": "NOMBRE EMPRESA",
+    "originRut": "0223335554",
+    "originAccount": "00000000000087654321",
+    "receiverRut": "0112223334",
+    "receiverAccount": "00000012345678",
+    "originBankCode": "cl_bci",
+    "originBankName": "Banco BCI",
+    "comment": "lalala",
+    "originAccountType": "cuenta_corriente"
+  }
 }

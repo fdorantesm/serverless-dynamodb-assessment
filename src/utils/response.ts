@@ -2,9 +2,14 @@ export class Response {
   private message = 'Ok';
   private statusCode = 200;
   private body: any;
+
   private headers: Record<string, string> = {
     'Content-Type': 'application/json',
   };
+
+  constructor() {
+    this.body = {};
+  }
 
   public setStatus(code: number): Response {
     this.statusCode = code;
@@ -29,12 +34,13 @@ export class Response {
     return {
       statusCode: this.body ? this.statusCode : 204,
       headers: this.headers,
-      body: this.body
-        ? JSON.stringify({
-            message: this.message,
-            data: this.body,
-          })
-        : undefined,
+      body:
+        this.body || this.message
+          ? JSON.stringify({
+              message: this.message,
+              data: this.body,
+            })
+          : undefined,
     };
   }
 }
