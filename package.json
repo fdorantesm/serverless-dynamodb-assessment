@@ -1,7 +1,6 @@
 {
   "name": "etpay",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
     "build:ts": "tsc",
