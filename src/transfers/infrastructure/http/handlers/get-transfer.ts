@@ -28,7 +28,7 @@ export async function getTransfer(
   }
 
   console.log('Transfer:', transfer);
-  return new Response().setStatus(200).setBody(transfer).build();
+  return new Response().setStatus(200).setBody(transfer.toJson()).build();
 }
 
 export const handler = middy(getTransfer)

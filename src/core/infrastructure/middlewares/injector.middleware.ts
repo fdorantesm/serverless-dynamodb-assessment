@@ -5,7 +5,7 @@ import { TransferRepository } from '@/transfers/infrastructure/persistence/datab
 import { S3Service } from '@/shared/infrastructure/storage/s3.service';
 import { getS3Config } from '@/core/infrastructure/config/s3.config';
 import type { S3ClientConfig } from '@aws-sdk/client-s3';
-import { TransferService } from '@/transfers/infrastructure/persistence/database/services/transfers.service';
+import { TransfersService } from '@/transfers/infrastructure/persistence/database/services/transfers.service';
 
 export const injectorMiddleware = () => {
   return {
@@ -22,7 +22,7 @@ export const injectorMiddleware = () => {
 
       handler.context.services = {
         s3Service: new S3Service(s3Settings),
-        transferService: new TransferService(new TransferRepository(Transfer)),
+        transferService: new TransfersService(new TransferRepository(Transfer)),
       };
     },
   };

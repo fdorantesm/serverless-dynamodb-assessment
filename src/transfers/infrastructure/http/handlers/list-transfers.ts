@@ -17,9 +17,9 @@ export async function listTransfers(
 
   const transfers = await transferService.list();
 
-  console.log('Transfers:', transfers);
+  const data = transfers.map((transfer) => transfer.toJson());
 
-  return new Response().setStatus(200).setBody(transfers).build();
+  return new Response().setStatus(200).setBody(data).build();
 }
 
 export const handler = middy(listTransfers)

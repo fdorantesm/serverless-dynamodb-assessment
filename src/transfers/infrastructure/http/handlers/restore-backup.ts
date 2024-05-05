@@ -7,6 +7,7 @@ import { RestoreTransfersBackupDto } from '@/transfers/infrastructure/http/dtos/
 import { getS3Config } from '@/core/infrastructure/config/s3.config';
 import type { Transfer } from '@/transfers/domain/interfaces/transfer';
 import { removeKeys } from '@/utils/object';
+import PromisePool from '@supercharge/promise-pool';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const middy = require('middy');
@@ -34,18 +35,35 @@ export async function restoreBackup(
       return transfer;
     });
 
-    const transfers = [];
+    const { results } = await PromisePool.withConcurrency(10)
+      .for(fixedData)
+      .process(async (item: Transfer) => {
+        try {
+          const transfer = await transferService.create(item);
+          return transfer.toJson();
+        } catch (error) {
+          return {
+            item,
+            error: error.message,
+          };
+        }
+      });
 
-    for await (const item of fixedData) {
-      try {
-        const transfer = await transferService.create(item);
-        transfers.push(transfer);
-      } catch (error) {
-        console.error('Error:', error, item);
-      }
-    }
+    const transfers = results.filter(
+      (result: Transfer & { error: string }) => !result.error,
+    );
 
-    return new Response().setStatus(200).setBody(transfers).build();
+    const errors = results.filter(
+      (result: Transfer & { error: string }) => result.error,
+    );
+
+    return new Response()
+      .setStatus(200)
+      .setBody({
+        transfers,
+        errors,
+      })
+      .build();
   } catch (error) {
     console.error('Error:', error);
     const response = new Response();

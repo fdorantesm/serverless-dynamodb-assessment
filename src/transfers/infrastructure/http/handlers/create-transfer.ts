@@ -30,7 +30,7 @@ export async function createTransfer(
   });
 
   return new Response()
-    .setBody(transfer)
+    .setBody(transfer.toJson())
     .setStatus(201)
     .setMessage('Transfer created')
     .build();

@@ -31,7 +31,7 @@ export async function updateTransfer(
   return new Response()
     .setStatus(200)
     .setMessage('Transfer updated')
-    .setBody(transfer)
+    .setBody(transfer.toJson())
     .build();
 }
 

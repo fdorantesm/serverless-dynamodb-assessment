@@ -9,13 +9,13 @@ export abstract class Entity<T extends { id: string }> {
     return this._props.id;
   }
 
-  public _toJson() {
+  public toJson() {
     return {
       ...this._props,
     };
   }
 
-  public _toObject() {
+  public toObject() {
     return {
       ...this._props,
     };
