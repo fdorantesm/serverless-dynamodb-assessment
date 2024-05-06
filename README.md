@@ -59,3 +59,10 @@ yarn backup ./private/transfers_back_test.json test-etpay-transfers-backup
 #### Client
 
 Existe una colección de [bruno](https://usebruno.com) en el directorio `.bruno` que se puede utilizar para consumir los servicios.
+
+#### Environments
+
+| Ambiente  | HOST                                                   |
+| --------- | ------------------------------------------------------ |
+| local     | <http://localhost:3000>                                  |
+| dev       | <https://vw0hb5x2sj.execute-api.us-east-1.amazonaws.com> |
