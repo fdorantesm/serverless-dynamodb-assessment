@@ -12,10 +12,11 @@ export async function listTransfers(
   _event: APIGatewayProxyEvent,
   context: Context,
 ) {
-  console.log(context.services);
   const { transferService } = context.services;
 
   const transfers = await transferService.list();
+
+  console.log('transfers', transfers);
 
   const data = transfers.map((transfer) => transfer.toJson());
 

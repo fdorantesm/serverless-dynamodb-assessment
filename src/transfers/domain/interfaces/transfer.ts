@@ -18,7 +18,7 @@ export interface Transfer {
   originBankName: string;
   comment: string;
   originAccountType: OriginAccountType;
-  validatedAt: Date;
+  validatedAt: Date | null;
   createdAt: Date;
   updatedAt: Date;
 }

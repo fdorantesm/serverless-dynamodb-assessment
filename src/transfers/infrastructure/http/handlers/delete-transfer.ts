@@ -16,8 +16,6 @@ export async function deleteTransfer(
   const { transferService } = context.services;
   const transferExist = await transferService.get(id!);
 
-  console.log('Transfer exist:', transferExist);
-
   if (!transferExist) {
     return new Response()
       .setStatus(404)

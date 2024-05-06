@@ -18,8 +18,6 @@ export async function getTransfer(
 
   const transfer = await transferService.get(id!);
 
-  console.log('Transfer exist:', transfer);
-
   if (!transfer) {
     return new Response()
       .setStatus(404)
@@ -27,7 +25,6 @@ export async function getTransfer(
       .build();
   }
 
-  console.log('Transfer:', transfer);
   return new Response().setStatus(200).setBody(transfer.toJson()).build();
 }
 

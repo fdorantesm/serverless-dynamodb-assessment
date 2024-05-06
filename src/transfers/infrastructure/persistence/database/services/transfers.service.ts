@@ -1,30 +1,35 @@
 import type { Repository } from '@/core/infrastructure/interfaces/repository.interface';
+import type { TransfersService as ITransfersService } from '@/transfers/domain/contracts/transfers.service';
 import { TransferEntity } from '@/transfers/domain/entities/transfer.entity';
 import type { Transfer } from '@/transfers/domain/interfaces/transfer';
 
-export class TransfersService {
-  constructor(private readonly transferRepository: Repository<Transfer>) {
+export class TransfersService implements ITransfersService {
+  constructor(
+    private readonly transferRepository: Repository<TransferEntity, Transfer>,
+  ) {
     this.transferRepository = transferRepository;
   }
 
   async create(payload: Transfer): Promise<TransferEntity> {
-    const transfer = await this.transferRepository.create(payload);
-    return TransferEntity.create(transfer);
+    return this.transferRepository.create(payload);
   }
 
   async list(): Promise<TransferEntity[]> {
-    const transfers = await this.transferRepository.list();
-    return transfers.map((transfer) => TransferEntity.create(transfer));
+    return this.transferRepository.list();
   }
 
-  async get(id: string): Promise<TransferEntity> {
+  async get(id: string): Promise<TransferEntity | null> {
     const transfer = await this.transferRepository.get(id);
-    return TransferEntity.create(transfer);
+
+    if (transfer) {
+      return transfer;
+    }
+
+    return null;
   }
 
-  async update(id: string, payload: Transfer): Promise<TransferEntity> {
-    const transfer = await this.transferRepository.update(id, payload);
-    return TransferEntity.create(transfer);
+  async update(id: string, payload: Transfer): Promise<TransferEntity | null> {
+    return this.transferRepository.update(id, payload);
   }
 
   async delete(id: string): Promise<void> {
@@ -32,7 +37,10 @@ export class TransfersService {
   }
 
   async bulkCreate(payload: Transfer[]): Promise<TransferEntity[]> {
-    const transfers = await this.transferRepository.bulkCreate(payload);
-    return transfers.map((transfer) => TransferEntity.create(transfer));
+    return this.transferRepository.bulkCreate(payload);
+  }
+
+  async clear(): Promise<void> {
+    return this.transferRepository.clear();
   }
 }

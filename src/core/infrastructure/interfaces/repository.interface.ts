@@ -1,8 +1,9 @@
-export interface Repository<T> {
-  create(item: T): T | Promise<T>;
-  list(): T[] | Promise<T[]>;
-  get(id: string): T | Promise<T>;
-  update(id: string, item: T): T | Promise<T>;
-  delete(id: string): void | Promise<void>;
-  bulkCreate(items: T[]): T[] | Promise<T[]>;
+export interface Repository<E, I> {
+  create(item: I): Promise<E>;
+  list(): Promise<E[]>;
+  get(id: string): Promise<E | null>;
+  update(id: string, item: I): Promise<E | null>;
+  delete(id: string): Promise<void>;
+  bulkCreate(items: I[]): Promise<E[]>;
+  clear(): Promise<void>;
 }

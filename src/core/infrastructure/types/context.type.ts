@@ -1,5 +1,5 @@
-import type { S3Service } from '@/shared/infrastructure/storage/s3.service';
-import type { TransfersService } from '@/transfers/infrastructure/persistence/database/services/transfers.service';
+import type { S3Service } from '@/shared/domain/contracts/s3.service';
+import type { TransfersService } from '@/transfers/domain/contracts/transfers.service';
 import { Context as LambdaContext } from 'aws-lambda';
 
 export type Context = LambdaContext & {

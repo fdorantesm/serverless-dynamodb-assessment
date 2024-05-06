@@ -28,10 +28,14 @@ export async function updateTransfer(
 
   const transfer = await transferService.update(id!, body);
 
+  const data = transfer!.toJson();
+
+  console.log('transfer', transfer);
+
   return new Response()
     .setStatus(200)
     .setMessage('Transfer updated')
-    .setBody(transfer.toJson())
+    .setBody(data)
     .build();
 }
 

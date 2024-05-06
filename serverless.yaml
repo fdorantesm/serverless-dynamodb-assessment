@@ -7,37 +7,37 @@ provider:
 
 functions:
   create:
-    handler: dist/transfers/infrastructure/http/handlers/create-transfer.handler
+    handler: dist/src/transfers/infrastructure/http/handlers/create-transfer.handler
     events:
       - httpApi:
           path: /transfers
           method: post
   list:
-    handler: dist/transfers/infrastructure/http/handlers/list-transfers.handler
+    handler: dist/src/transfers/infrastructure/http/handlers/list-transfers.handler
     events:
       - httpApi:
           path: /transfers
           method: get
   get:
-    handler: dist/transfers/infrastructure/http/handlers/get-transfer.handler
+    handler: dist/src/transfers/infrastructure/http/handlers/get-transfer.handler
     events:
       - httpApi:
           path: /transfers/{id}
           method: get
   update:
-    handler: dist/transfers/infrastructure/http/handlers/update-transfer.handler
+    handler: dist/src/transfers/infrastructure/http/handlers/update-transfer.handler
     events:
       - httpApi:
           path: /transfers/{id}
           method: put
   delete:
-    handler: dist/transfers/infrastructure/http/handlers/delete-transfer.handler
+    handler: dist/src/transfers/infrastructure/http/handlers/delete-transfer.handler
     events:
       - httpApi:
           path: /transfers/{id}
           method: delete
   restoreBackup:
-    handler: dist/transfers/infrastructure/http/handlers/restore-backup.handler
+    handler: dist/src/transfers/infrastructure/http/handlers/restore-backup.handler
     events:
       - httpApi:
           path: /transfers/restore-backup

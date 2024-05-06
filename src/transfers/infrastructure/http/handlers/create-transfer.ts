@@ -15,8 +15,6 @@ export async function createTransfer(
   event: APIGatewayProxyEvent,
   context: Context,
 ) {
-  console.log('Create one transfer...');
-
   const { transferService } = context.services;
   const body = JSON.parse(event.body!);
   const now = new Date().toISOString();
@@ -28,6 +26,8 @@ export async function createTransfer(
     createdAt: now,
     updatedAt: now,
   });
+
+  console.log('transfer', transfer);
 
   return new Response()
     .setBody(transfer.toJson())
