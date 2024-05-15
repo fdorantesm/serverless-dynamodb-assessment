@@ -19,21 +19,38 @@ export async function createTransfer(
   const body = JSON.parse(event.body!);
   const now = new Date().toISOString();
 
-  const transfer = await transferService.create({
-    id: uuid(),
-    ...body,
-    validatedAt: now,
-    createdAt: now,
-    updatedAt: now,
-  });
+  try {
+    const transfer = await transferService.create({
+      id: uuid(),
+      ...body,
+      validatedAt: now,
+      createdAt: now,
+      updatedAt: now,
+    });
 
-  console.log('transfer', transfer);
+    console.log('transfer', transfer);
 
-  return new Response()
-    .setBody(transfer.toJson())
-    .setStatus(201)
-    .setMessage('Transfer created')
-    .build();
+    if (!transfer) {
+      throw new Error('transfer_not_created');
+    }
+
+    return new Response()
+      .setBody(transfer.toJson())
+      .setStatus(201)
+      .setMessage('Transfer created')
+      .build();
+  } catch (error) {
+    const response = new Response().setMessage(error.message);
+
+    switch (error.message) {
+      case 'transfer_not_created': {
+        return response.setStatus(400).build();
+      }
+      default: {
+        return response.setStatus(500).build();
+      }
+    }
+  }
 }
 
 export const handler = middy(createTransfer)

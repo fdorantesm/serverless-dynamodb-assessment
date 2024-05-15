@@ -45,11 +45,9 @@ export class TransfersMemoryRepository
     this.model.deleteOne({ id }, { multi: false });
   }
 
-  async bulkCreate(items: Transfer[]): Promise<TransferEntity[]> {
+  async bulkCreate(items: Transfer[]): Promise<void> {
     const transfers = await this.model.insertMany(items);
-    return transfers.map((transfer: Transfer) =>
-      TransferEntity.create(transfer),
-    );
+    transfers.map((transfer: Transfer) => TransferEntity.create(transfer));
   }
 
   async clear(): Promise<void> {

@@ -14,13 +14,17 @@ export async function listTransfers(
 ) {
   const { transferService } = context.services;
 
-  const transfers = await transferService.list();
+  try {
+    const transfers = await transferService.list({});
+    console.log('transfers', transfers);
 
-  console.log('transfers', transfers);
+    const data = transfers.map((transfer) => transfer.toJson());
 
-  const data = transfers.map((transfer) => transfer.toJson());
-
-  return new Response().setStatus(200).setBody(data).build();
+    return new Response().setStatus(200).setBody(data).build();
+  } catch (error) {
+    console.log('herror', error.__type);
+    return new Response().setStatus(500).setMessage(error.message).build();
+  }
 }
 
 export const handler = middy(listTransfers)

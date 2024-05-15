@@ -40,6 +40,10 @@ export async function restoreBackup(
       .process(async (item: Transfer) => {
         try {
           const transfer = await transferService.create(item);
+          if (!transfer) {
+            throw new Error('Transfer not created');
+          }
+
           return transfer.toJson();
         } catch (error) {
           return {

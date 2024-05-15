@@ -1,17 +1,26 @@
-import * as dynamoose from 'dynamoose';
 import { getDynamoDbConfig } from '@/core/infrastructure/config/dynamodb.config';
+import { DynamoDB } from 'aws-sdk';
 
-export function getConnection() {
-  const { dynamodb } = getDynamoDbConfig();
-  const ddb = new dynamoose.aws.ddb.DynamoDB({
-    credentials: {
-      accessKeyId: dynamodb.accessKeyId,
-      secretAccessKey: dynamodb.secretAccessKey,
-    },
-    region: dynamodb.region,
-  });
+export class DynamoClient {
+  private static instance: DynamoDB;
 
-  dynamoose.aws.ddb.set(ddb);
+  private constructor() {
+    const { dynamodb: config } = getDynamoDbConfig();
+    console.log('config', config);
+    DynamoClient.instance = new DynamoDB({
+      credentials: {
+        accessKeyId: config.accessKeyId,
+        secretAccessKey: config.secretAccessKey,
+      },
+      region: config.region,
+    });
+  }
 
-  return dynamoose;
+  public static getInstance(): DynamoDB {
+    if (!DynamoClient.instance) {
+      new DynamoClient();
+    }
+
+    return DynamoClient.instance;
+  }
 }

@@ -1,14 +1,15 @@
-import { DynamoRepository } from '@/core/infrastructure/classes/dynano-repository';
+import { DynamoRepository } from '@/core/infrastructure/classes/dynamo-repository';
 import { TransferEntity } from '@/transfers/domain/entities/transfer.entity';
 import type { Transfer } from '@/transfers/domain/interfaces/transfer';
-import type { ModelType } from 'dynamoose/dist/General';
-import type { AnyItem } from 'dynamoose/dist/Item';
+import type { DynamoDB } from 'aws-sdk';
 
 export class TransferRepository extends DynamoRepository<
   Transfer,
   TransferEntity
 > {
-  constructor(model: ModelType<AnyItem>) {
-    super(model, TransferEntity);
+  protected static readonly tableName = 'Transfers';
+
+  constructor(readonly db: DynamoDB) {
+    super(db, TransferRepository.tableName, TransferEntity);
   }
 }

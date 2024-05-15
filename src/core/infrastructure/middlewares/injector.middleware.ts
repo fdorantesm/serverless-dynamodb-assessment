@@ -1,11 +1,11 @@
-import type { HandlerLambda } from 'middy'; // Import the 'Context' type
+import type { HandlerLambda } from 'middy';
 import type { Context } from '@/core/infrastructure/types/context.type';
-import { Transfer } from '@/transfers/infrastructure/persistence/database/models/transfer.model';
 import { TransferRepository } from '@/transfers/infrastructure/persistence/database/repositories/transfers.repository';
 import { S3Service } from '@/shared/infrastructure/storage/s3.service';
 import { getS3Config } from '@/core/infrastructure/config/s3.config';
 import type { S3ClientConfig } from '@aws-sdk/client-s3';
 import { TransfersService } from '@/transfers/infrastructure/persistence/database/services/transfers.service';
+import { DynamoClient } from '@/core/infrastructure/persistence/dynamodb';
 
 export const injectorMiddleware = () => {
   return {
@@ -22,7 +22,9 @@ export const injectorMiddleware = () => {
 
       handler.context.services = {
         s3Service: new S3Service(s3Settings),
-        transferService: new TransfersService(new TransferRepository(Transfer)),
+        transferService: new TransfersService(
+          new TransferRepository(DynamoClient.getInstance()),
+        ),
       };
     },
   };

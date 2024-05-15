@@ -10,7 +10,7 @@ export class TransfersService implements ITransfersService {
     this.transferRepository = transferRepository;
   }
 
-  async create(payload: Transfer): Promise<TransferEntity> {
+  async create(payload: Transfer): Promise<TransferEntity | null> {
     return this.transferRepository.create(payload);
   }
 
@@ -36,7 +36,7 @@ export class TransfersService implements ITransfersService {
     return this.transferRepository.delete(id);
   }
 
-  async bulkCreate(payload: Transfer[]): Promise<TransferEntity[]> {
+  async bulkCreate(payload: Transfer[]): Promise<void> {
     return this.transferRepository.bulkCreate(payload);
   }
 
